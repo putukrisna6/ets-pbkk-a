@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TravelSweden.Models;
 
 namespace TravelSweden.Data
 {
@@ -9,5 +10,6 @@ namespace TravelSweden.Data
             : base(options)
         {
         }
+        public DbSet<TravelSweden.Models.Airport> Airport { get; set; }
     }
 }
