@@ -1,0 +1,16 @@
+﻿sweden {
+    position: absolute;
+    width: 140px;
+    height: 54px;
+    left: 46px;
+    top: 23px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 54px;
+    /* identical to box height */
+
+
+    color: #000000;
+}

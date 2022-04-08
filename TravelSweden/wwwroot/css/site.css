@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+carousel-item{
+    height: 100vh;
+    background: no-repeat scroll center scroll;
+    background-size:cover;
+}
