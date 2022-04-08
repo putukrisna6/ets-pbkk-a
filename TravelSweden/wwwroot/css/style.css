@@ -14,3 +14,13 @@
 
     color: #000000;
 }
+
+.container-fluid {
+    padding: 0 !important;
+}
+
+parallax-bg-1 {
+    background: rgba(33, 158, 188, 0.04);
+    background-size: cover;
+    margin-bottom: 184px;
+}
