@@ -15,6 +15,11 @@ namespace TravelSweden.Models
         public int DestAirportId { get; set; }
         public Airport DestAirport { get; set; }
 
+        public override string ToString()
+        {
+            return "Distance: " + Distance + " " + "Origin: " + OriginAirportId;
+        }
+
         public FlightRoute()
         {
 

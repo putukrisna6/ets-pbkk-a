@@ -11,5 +11,6 @@ namespace TravelSweden.Data
         {
         }
         public DbSet<TravelSweden.Models.Airport> Airport { get; set; }
+        public DbSet<TravelSweden.Models.FlightRoute> FlightRoute { get; set; }
     }
 }
