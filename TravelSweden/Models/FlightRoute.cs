@@ -17,7 +17,7 @@ namespace TravelSweden.Models
 
         public override string ToString()
         {
-            return "Distance: " + Distance + " " + "Origin: " + OriginAirportId;
+            return OriginAirport.Iata + "-" + DestAirport.Iata;
         }
 
         public FlightRoute()
