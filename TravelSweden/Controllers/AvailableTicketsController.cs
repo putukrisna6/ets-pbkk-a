@@ -94,8 +94,6 @@ namespace TravelSweden.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
                 try
                 {
                     _context.Update(availableTicket);
@@ -113,9 +111,6 @@ namespace TravelSweden.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["AttachedFlightId"] = new SelectList(_context.Flight, "Id", "Airline", availableTicket.AttachedFlightId);
-            return View(availableTicket);
         }
 
         // GET: AvailableTickets/Delete/5
