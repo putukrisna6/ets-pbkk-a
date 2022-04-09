@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelSweden.Data;
 
@@ -11,9 +12,10 @@ using TravelSweden.Data;
 namespace TravelSweden.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220408145457_FlighrRoute")]
+    partial class FlighrRoute
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,68 +251,6 @@ namespace TravelSweden.Data.Migrations
                     b.ToTable("Airport");
                 });
 
-            modelBuilder.Entity("TravelSweden.Models.AvailableTicket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("AttachedFlightId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsFreeCancellation")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsFreeFood")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsFreeLuggage")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AttachedFlightId");
-
-                    b.ToTable("AvailableTicket");
-                });
-
-            modelBuilder.Entity("TravelSweden.Models.Flight", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Airline")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ArrivalTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DepartureTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("RouteId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RouteId");
-
-                    b.ToTable("Flight");
-                });
-
             modelBuilder.Entity("TravelSweden.Models.FlightRoute", b =>
                 {
                     b.Property<int>("Id")
@@ -386,28 +326,6 @@ namespace TravelSweden.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TravelSweden.Models.AvailableTicket", b =>
-                {
-                    b.HasOne("TravelSweden.Models.Flight", "AttachedFlight")
-                        .WithMany()
-                        .HasForeignKey("AttachedFlightId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AttachedFlight");
-                });
-
-            modelBuilder.Entity("TravelSweden.Models.Flight", b =>
-                {
-                    b.HasOne("TravelSweden.Models.FlightRoute", "Route")
-                        .WithMany()
-                        .HasForeignKey("RouteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Route");
                 });
 
             modelBuilder.Entity("TravelSweden.Models.FlightRoute", b =>
