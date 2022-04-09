@@ -1,0 +1,30 @@
+﻿@page
+@model LoginModel
+
+    <div class="container" style="width:40%;margin-top:40px;margin-bottom:300px;background: #FFFFFF; box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.25); border-radius: 5px;">
+        <div class="d-flex flex-column">
+            <h3 class="mx-auto" style="margin-top:40px; font-weight: bold">Login</h3>
+            <p class="mx-auto" style="margin-top:10px;font-size:16px">Traveling ke Swedia dimulai dari sini.</p>
+            
+                <form id="account" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input input asp-for="Input.Email" class="form-control" autocomplete="email" aria-required="true" class="form-control mx-auto" placeholder="Email" style="width:300px">
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" class="form-control mx-auto" placeholder="Password" style="width:300px">
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    <div>
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe" class="form-label">
+                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <button id="login-submit" type="submit" class="btn btn-warning mx-auto" style="border-radius: 30px; width:320px; height:40px; color: #126782;font-weight: 600;font-size: 15px;line-height: 30px; margin-top:20px">Login</button>
+                </form>
+        </div>
+    </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
